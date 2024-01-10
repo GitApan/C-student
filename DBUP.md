@@ -92,3 +92,12 @@ new DBUp("server=localhost;userid=root;password=1372213206;database=core").run()
 ```
 ### 6.运行成功
 ![image.png](https://upload-images.jianshu.io/upload_images/29491970-ffb06e703ad2f23e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+# DBUP是如何不重复执行SQL文件的
+ - 版本控制 
+     通过对每个脚本文件进行版本控制来管理数据库的升级。DBUp会跟踪研究执行的脚本，并记录最后一个已执行的版本号。
+ - 脚本文件状态记录
+    DBUP会在数据库中创建一个用于记录已执行的脚本表-----“SchemaVersions”，这个表会存储研究执行的脚本的版本号和执行时间等信息。
+   ![image.png](https://upload-images.jianshu.io/upload_images/29491970-461204747a6b8a09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+- 脚本文件内容验证（根据哈希值进行计算）
+    计算脚本文件的哈希值，并与之前执行过的脚本的哈希值进行比对。   
