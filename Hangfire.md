@@ -110,11 +110,17 @@ GlobalConfiguration.Configuration.UseRedisStorage("localhost", 0, options);
 ```
 # 后台作业的类型
 1.Enqueue 方法：用于将一个方法调用添加到 Hangfire 的队列中，以便在后台执行。返回的 jobId 是作业的唯一标识符，可用于跟踪作业的状态和进度。
+
 2.Schedule 方法：用于在指定的延迟时间后执行方法
+
 3.ContinueWith 方法：在一个作业完成后继续执行另一个作业
+
 4.Delay 方法：将方法调用延迟指定的时间后执行
+
 5.ContinueJobWith 方法：用于在指定作业完成后执行另一个作业。jobId 是要延续的作业的标识符。
+
 6.Delete 方法：删除指定的作业。jobId 是要删除的作业的标识符。
+
 - #### 即发即忘
 （用于卸载方法调用）
 ```
